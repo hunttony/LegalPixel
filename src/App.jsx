@@ -1,5 +1,5 @@
 
-import { GlobalStyle } from './styles/GlobalStyle';
+import { GlobalStyle } from './components/GlobalStyle';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import FeaturesSection from './components/FeaturesSection';
