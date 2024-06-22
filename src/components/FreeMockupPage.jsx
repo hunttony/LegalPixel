@@ -19,7 +19,7 @@ const PageContainer = styled.section`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  background-image: url('https://i.ibb.co/DLD6fBz/legalphoto1.jpg');
   padding: 20px;
 
   @media (max-width: 768px) {
@@ -28,10 +28,10 @@ const PageContainer = styled.section`
 `;
 
 const FormContainer = styled(motion.div)`
-  background: #ffffff;
+  background: rgba(200, 125, 125,.9);
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   max-width: 600px;
   width: 100%;
 
@@ -43,7 +43,7 @@ const FormContainer = styled(motion.div)`
 const FormTitle = styled.h1`
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: black;
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
