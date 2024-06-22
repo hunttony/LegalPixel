@@ -123,7 +123,7 @@ const FreeMockupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/mockup', {
+      const response = await fetch('../../api/mockup/index.js', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

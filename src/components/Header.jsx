@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import SEO from './SEO';
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -113,6 +114,15 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
+
+    <>
+    <SEO 
+      title="Transform Your Law Firm's Online Presence" 
+      description="Boost your revenue with a professional, modern, and secure website." 
+      keywords="law firm, legal services, online presence, professional website, secure website"
+      url="https://www.yourlawfirm.com"
+      image="https://www.yourlawfirm.com/assets/images/legalphoto1.jpg"
+    />
     <HeaderContainer>
       <Logo>Legal Pixel Pro</Logo>
       <Phone>(346) 316-6075</Phone>
@@ -127,6 +137,7 @@ const Header = () => {
         <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
       </Nav>
     </HeaderContainer>
+    </>
   );
 };
 

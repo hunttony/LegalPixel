@@ -1,46 +1,55 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
 
-// Connect to MongoDB
-const connectToDatabase = async () => {
-  if (mongoose.connection.readyState >= 1) {
-    return;
+// Load environment variables from .env.local file
+dotenv.config({ path: '.env.local' });
+
+let cachedClient = null;
+let cachedDb = null;
+
+const connectToDatabase = async (uri) => {
+  if (cachedClient && cachedDb) {
+    return { client: cachedClient, db: cachedDb };
   }
-  return mongoose.connect(process.env.MONGODB_URI, {
+
+  const client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
+
+  await client.connect();
+  const db = client.db(process.env.MONGODB_DB);
+
+  cachedClient = client;
+  cachedDb = db;
+
+  return { client, db };
 };
 
-// Mockup request schema
-const mockupRequestSchema = new Schema({
-  name: String,
-  email: String,
-  phone: String,
-  message: String,
-});
-
-let MockupRequest;
-try {
-  MockupRequest = mongoose.model('MockupRequest');
-} catch {
-  MockupRequest = mongoose.model('MockupRequest', mockupRequestSchema);
-}
-
-// API route to handle form submissions
 export default async function handler(req, res) {
-  await connectToDatabase();
-
   if (req.method === 'POST') {
+    const { name, email, phone, message } = req.body;
+
     try {
-      const { name, email, phone, message } = req.body;
-      const newRequest = new MockupRequest({ name, email, phone, message });
-      await newRequest.save();
-      res.status(201).json({ message: 'Request submitted successfully' });
+      const { db } = await connectToDatabase(process.env.MONGODB_URI);
+      const collection = db.collection('submissions');
+
+      const result = await collection.insertOne({
+        name,
+        email,
+        phone,
+        message,
+        
+        createdAt: new Date().toISOString(),
+      });
+
+      res.status(200).json({ message: 'Form submitted successfully', id: result.insertedId });
     } catch (error) {
-      res.status(500).json({ message: 'Server error', error });
+      console.error('Error adding document: ', error);
+      res.status(500).json({ message: 'Error submitting form' });
     }
   } else {
-    res.status(405).json({ message: 'Method not allowed' });
+    res.setHeader('Allow', ['POST']);
+    res.status(405).end(`Method ${req.method} not allowed`);
   }
 }
