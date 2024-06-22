@@ -28,7 +28,7 @@ const PageContainer = styled.section`
 `;
 
 const FormContainer = styled(motion.div)`
-  background: rgba(200, 125, 125,.9);
+  background: rgba(220, 160, 75,.9);
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
@@ -95,6 +95,7 @@ const SubmitButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 
   &:hover {
     background-color: #34495e;
