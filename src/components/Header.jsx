@@ -56,7 +56,7 @@ const Logo = styled.h1`
 const Nav = styled.nav`
   a {
     margin-left: 20px;
-    color: #ecf0f1;
+    color: black;
     text-decoration: none;
     font-weight: bold;
     

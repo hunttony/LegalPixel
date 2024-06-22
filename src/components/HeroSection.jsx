@@ -25,16 +25,19 @@ const StickyBarButton = styled.a`
   display: inline-block;
   padding: 10px 20px;
   font-size: 1rem;
+  font-weight: bold;
   color: #2c3e50;
-  background-color: #ecf0f1;
+  background-color: orange;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 20%;
+  text-shadow: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transition: background-color 0.3s;
   max-height: 40px;
 
   &:hover {
     background-color: #bdc3c7;
+    scale: 1.1;
   }
 
   @media (max-width: 768px) {
@@ -133,8 +136,8 @@ const HeroSection = () => (
     </HeroContent>
   </HeroContainer>
   <StickyBar>
-      <p>Welcome to Our Law Firm | Contact Us: (346) 316-6075</p>
-      <StickyBarButton href="#contact">Contact Us</StickyBarButton>
+      <p>Welcome to Legal Pixel Pro's | Contact Us: (346) 316-6075</p>
+      <StickyBarButton href="#">Get Your Free Mockup</StickyBarButton>
     </StickyBar>
   </>
 );

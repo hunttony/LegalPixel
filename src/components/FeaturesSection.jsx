@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const FeaturesContainer = styled.section`
   padding: 60px 40px;
-  background-image: url('/src/assets/images/legalbckgrnd-02.jpg');
+  background-image: url('https://i.ibb.co/bLqRCQL/legalbckgrnd-02.jpg');
   text-align: center;
   
 `;
