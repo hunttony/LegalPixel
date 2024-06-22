@@ -5,5 +5,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Arial', sans-serif;
     background-color: #f5f5f5;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
   }
 `;

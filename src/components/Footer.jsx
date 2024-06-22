@@ -6,10 +6,18 @@ const FooterContainer = styled.footer`
   background-color: #2c3e50;
   color: #ecf0f1;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const FooterText = styled.p`
   font-size: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Footer = () => (

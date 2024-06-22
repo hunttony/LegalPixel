@@ -4,12 +4,17 @@ import { motion } from 'framer-motion';
 
 const FeaturesContainer = styled.section`
   padding: 60px 40px;
-  background-color: #ecf0f1;
+  background-image: url('/src/assets/images/legalbckgrnd-02.jpg');
   text-align: center;
+  
 `;
 
 const Feature = styled(motion.div)`
   margin-bottom: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
 `;
 
 const FeatureTitle = styled.h2`

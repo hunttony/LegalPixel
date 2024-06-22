@@ -7,16 +7,28 @@ const CTAContainer = styled.section`
   background-color: #2c3e50;
   text-align: center;
   color: #ecf0f1;
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+  }
 `;
 
 const CTATitle = styled.h2`
   font-size: 2rem;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const CTAText = styled.p`
   font-size: 1rem;
   margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const CTAButton = styled.a`
@@ -28,9 +40,14 @@ const CTAButton = styled.a`
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
-  
+
   &:hover {
     background-color: #bdc3c7;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
 `;
 
